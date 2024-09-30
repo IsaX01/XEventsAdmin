@@ -289,7 +289,7 @@ def places_list(request):
                 image_path = image_path.replace('\\', '/')
                 image_filename = os.path.basename(image_path)
                 image_filename_encoded = urllib.parse.quote(image_filename)
-                image_url = f"http://localhost:8080/images/{image_filename_encoded}"
+                image_url = f"http://localhost:8080git/images/{image_filename_encoded}"
             else:
                 image_url = '/static/images/default-placeholder.png'
 
