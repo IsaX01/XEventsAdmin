@@ -47,7 +47,8 @@ def login_view(request):
 def dashboard(request):
     if 'user' not in request.session:
         return redirect('login')
-    return render(request, 'dashboard.html')
+    user = user = request.session['user']
+    return render(request, 'dashboard.html', {"user": user})
 
 def user_list(request):
     if 'user' not in request.session:
