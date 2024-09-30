@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Places List</title>
+</head>
+<body>
+    <h2>Places</h2>
+    <a href="{% url 'places_create' %}">Create New Place</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Place Name</th>
+                <th>Description</th>
+                <th>About</th>
+                <th>Location</th>
+                <th>Image reference</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for place in places %}
+            <tr>
+                <td>{{ place.placeName }}</td>
+                <td>{{ place.description }}</td>
+                <td>{{ place.about }}</td>
+                <td>{{ place.location }}</td>
+                <td><img src="{{ place.image_url }}"/></td>
+                <td>
+                    <a href="{% url 'places_edit' place.id %}">Edit</a>
+                    <a href="{% url 'places_delete' place.id %}">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7">Places are not available at this momment.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

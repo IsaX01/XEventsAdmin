@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Invetory</title>
+</head>
+<body>
+    <h2>Delete Inventory</h2>
+    <p>¿Delete this inventory "{{ inventory.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="confirm">Confirm</button>
+        <button type="submit" name="cancel">Cancel</button>
+    </form>
+</body>
+</html>

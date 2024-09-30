@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory List</title>
+</head>
+<body>
+    <h2>Inventory</h2>
+    <a href="{% url 'inventory_create' %}">Create New Inventory</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Stock Quaantity</th>
+                <th>Maintenance Status</th>
+                <th>Is Available?</th>
+                <th>Category</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for inventory in inventories %}
+            <tr>
+                <td>{{ inventory.name }}</td>
+                <td>{{ inventory.description }}</td>
+                <td>{{ inventory.stockQuantity }}</td>
+                <td>{{ inventory.maintenanceStatus }}</td>
+                <td>{{ inventory.isAvailable }}</td>
+                <td>{{ inventory.category.category }}</td>
+                <td>
+                    <a href="{% url 'inventory_edit' inventory.id %}">Edit</a>
+                    <a href="{% url 'inventory_delete' inventory.id %}">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7">Inventories are not available at this momment.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </br>
+    </br>
+    <a href="{% url 'category_create' %}">Create New Inventory Category</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+            <tr>
+                <td>{{ category.category }}</td>
+                <td>
+                    <a href="{% url 'category_edit' category.id %}">Edit</a>
+                    <a href="{% url 'category_delete' category.id %}">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7">Categories are not available at this momment.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

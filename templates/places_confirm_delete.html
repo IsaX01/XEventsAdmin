@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Place</title>
+</head>
+<body>
+    <h2>Delete Place</h2>
+    <p>¿Delete this place"{{ places.placeName }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="confirm">Confirm</button>
+        <button type="submit" name="cancel">Cancel</button>
+    </form>
+</body>
+</html>

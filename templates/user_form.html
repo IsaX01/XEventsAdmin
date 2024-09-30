@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if form.initial.id %}Edit User{% else %}Create User{% endif %}</title>
+</head>
+<body>
+    <h2>{% if form.initial.id %}Edit User{% else %}Crear User{% endif %}</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color:red;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

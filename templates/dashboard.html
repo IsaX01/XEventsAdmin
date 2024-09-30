@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Bienvenido al Dashboard</h2>
+    <nav>
+        <ul>
+            <li><a href="{% url 'user_list' %}">Users</a></li>
+            <li><a href="{% url 'inventory_list' %}">Inventory</a></li>
+            <li><a href="{% url 'places_list' %}">Places</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
